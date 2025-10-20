@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 8%; /* Dark Blue */
+    --foreground: 45 65% 95%; /* Light Yellow */
+
+    --card: 210 33% 8%;
+    --card-foreground: 45 65% 95%;
+
+    --popover: 210 33% 8%;
+    --popover-foreground: 45 65% 95%;
+
+    --primary: 45 93% 47%; /* Yellow */
+    --primary-foreground: 210 33% 8%; /* Dark Blue */
+
+    --secondary: 185 94% 39%;
+    --secondary-foreground: 210 33% 8%;
+
+    --muted: 210 33% 15%;
+    --muted-foreground: 45 65% 80%;
+
+    --accent: 185 94% 39%; /* Cyan */
+    --accent-foreground: 210 33% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 65% 95%;
+
+    --border: 45 93% 47%; /* Yellow */
+    --input: 210 33% 15%;
+    --ring: 45 93% 47%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    color-scheme: dark;
+  }
+}
+
+/* CRT Effect */
+.crt-effect::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 20;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 100vh, 0 0;
+  }
+}
